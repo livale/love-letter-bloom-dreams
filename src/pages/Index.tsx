@@ -479,7 +479,7 @@ const Index = () => {
               <div className="absolute inset-0 bg-black/40"></div>
               <div className="section-text absolute inset-0 flex items-center justify-center p-8">
                 <div className="text-white text-center space-y-6 max-w-3xl">
-                  <div className="text-lg md:text-xl leading-relaxed whitespace-pre-line font-medium backdrop-blur-sm bg-white/10 p-6 rounded-2xl">
+                  <div className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed whitespace-pre-line font-medium backdrop-blur-sm bg-white/10 p-6 rounded-2xl">
                     {section.text}
                   </div>
                 </div>
