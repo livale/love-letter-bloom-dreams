@@ -471,15 +471,19 @@ const Index = () => {
         return (
           <div className="section-content relative max-w-5xl mx-auto">
             <div className="section-image relative h-96 md:h-[500px] overflow-hidden rounded-3xl shadow-2xl">
+              {/* Pastikan logika img/video Anda sudah benar di sini */}
               <img
                 src={section.image}
                 alt={`Memory ${section.id}`}
                 className="parallax-image w-full h-full object-cover"
               />
+
               <div className="absolute inset-0 bg-black/40"></div>
-              <div className="section-text absolute inset-0 flex items-center justify-center p-8">
+              {/* PERBAIKAN PADDING DI SINI (p-3 sm:p-8) */}
+              <div className="section-text absolute inset-0 flex items-center justify-center p-3 sm:p-8">
                 <div className="text-white text-center space-y-6 max-w-3xl">
-                  <div className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed whitespace-pre-line font-medium backdrop-blur-sm bg-white/10 p-6 rounded-2xl">
+                  {/* PERBAIKAN UTAMA FONT & PADDING DI SINI */}
+                  <div className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed whitespace-pre-line font-medium backdrop-blur-sm bg-white/10 p-3 sm:p-6 rounded-2xl">
                     {section.text}
                   </div>
                 </div>
