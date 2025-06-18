@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -18,6 +19,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'dancing': ['Dancing Script', 'cursive'],
+				'poppins': ['Poppins', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -84,11 +89,31 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'floating-hearts': {
+					'0%, 100%': {
+						transform: 'translateY(0px) rotate(0deg)'
+					},
+					'50%': {
+						transform: 'translateY(-20px) rotate(10deg)'
+					}
+				},
+				'falling-petals': {
+					'0%': {
+						transform: 'translateY(-100vh) rotate(0deg)',
+						opacity: '1'
+					},
+					'100%': {
+						transform: 'translateY(100vh) rotate(360deg)',
+						opacity: '0'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'floating-hearts': 'floating-hearts 3s ease-in-out infinite',
+				'falling-petals': 'falling-petals 8s linear infinite'
 			}
 		}
 	},
