@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { ArrowUp } from 'lucide-react';
 import { gsap } from 'gsap';
@@ -11,7 +10,7 @@ const Index = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
-  const sectionsRef = useRef<HTMLDivElement[]>([]);
+  const sectionsRef = useRef<(HTMLElement | null)[]>([]);
   const heartsContainerRef = useRef<HTMLDivElement>(null);
   const flowersContainerRef = useRef<HTMLDivElement>(null);
 
@@ -246,7 +245,9 @@ const Index = () => {
       {sections.map((section, index) => (
         <section
           key={section.id}
-          ref={el => sectionsRef.current[index] = el!}
+          ref={el => {
+            sectionsRef.current[index] = el;
+          }}
           className={`min-h-screen flex items-center justify-center relative overflow-hidden ${section.background}`}
         >
           <div className="section-content container mx-auto px-6 py-20">
