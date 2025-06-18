@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { ArrowUp } from 'lucide-react';
 import { gsap } from 'gsap';
@@ -98,25 +97,25 @@ const Index = () => {
       if (section) {
         const sectionData = sections[index];
         
-        // Animate title
+        // Animate title - separate from content
         gsap.fromTo(section.querySelector('.section-title'), 
-          { opacity: 0, y: -50, scale: 0.8 },
+          { opacity: 0, y: -30, scale: 0.9 },
           {
             opacity: 1,
             y: 0,
             scale: 1,
-            duration: 1.2,
-            ease: "back.out(1.7)",
+            duration: 1,
+            ease: "power2.out",
             scrollTrigger: {
               trigger: section,
-              start: "top 85%",
-              end: "bottom 15%",
+              start: "top 90%",
+              end: "bottom 10%",
               toggleActions: "play none none reverse"
             }
           }
         );
 
-        // Animate content based on layout
+        // Animate content based on layout with delays to avoid collisions
         if (sectionData.layout === 'left' || sectionData.layout === 'right') {
           const direction = sectionData.layout === 'left' ? -100 : 100;
           
@@ -125,59 +124,9 @@ const Index = () => {
             {
               opacity: 1,
               x: 0,
-              duration: 1.5,
-              ease: "power3.out",
-              scrollTrigger: {
-                trigger: section,
-                start: "top 80%",
-                end: "bottom 20%",
-                toggleActions: "play none none reverse"
-              }
-            }
-          );
-
-          gsap.fromTo(section.querySelector('.section-image'), 
-            { opacity: 0, x: -direction, scale: 0.8 },
-            {
-              opacity: 1,
-              x: 0,
-              scale: 1,
-              duration: 1.5,
+              duration: 1.2,
               ease: "power3.out",
               delay: 0.3,
-              scrollTrigger: {
-                trigger: section,
-                start: "top 80%",
-                end: "bottom 20%",
-                toggleActions: "play none none reverse"
-              }
-            }
-          );
-        } else if (sectionData.layout === 'center') {
-          gsap.fromTo(section.querySelector('.section-content'), 
-            { opacity: 0, y: 100, scale: 0.9 },
-            {
-              opacity: 1,
-              y: 0,
-              scale: 1,
-              duration: 1.8,
-              ease: "power2.out",
-              scrollTrigger: {
-                trigger: section,
-                start: "top 80%",
-                end: "bottom 20%",
-                toggleActions: "play none none reverse"
-              }
-            }
-          );
-        } else if (sectionData.layout === 'stack') {
-          gsap.fromTo(section.querySelector('.section-text'), 
-            { opacity: 0, y: 50 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 1.2,
-              ease: "power2.out",
               scrollTrigger: {
                 trigger: section,
                 start: "top 75%",
@@ -188,13 +137,31 @@ const Index = () => {
           );
 
           gsap.fromTo(section.querySelector('.section-image'), 
-            { opacity: 0, scale: 0.5, rotation: 5 },
+            { opacity: 0, x: -direction, scale: 0.9 },
             {
               opacity: 1,
+              x: 0,
               scale: 1,
-              rotation: 0,
+              duration: 1.2,
+              ease: "power3.out",
+              delay: 0.6,
+              scrollTrigger: {
+                trigger: section,
+                start: "top 75%",
+                end: "bottom 25%",
+                toggleActions: "play none none reverse"
+              }
+            }
+          );
+        } else if (sectionData.layout === 'center') {
+          gsap.fromTo(section.querySelector('.section-content'), 
+            { opacity: 0, y: 50, scale: 0.95 },
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
               duration: 1.5,
-              ease: "back.out(1.7)",
+              ease: "power2.out",
               delay: 0.4,
               scrollTrigger: {
                 trigger: section,
@@ -204,14 +171,50 @@ const Index = () => {
               }
             }
           );
-        } else if (sectionData.layout === 'overlay') {
+        } else if (sectionData.layout === 'stack') {
+          gsap.fromTo(section.querySelector('.section-text'), 
+            { opacity: 0, y: 30 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 1,
+              ease: "power2.out",
+              delay: 0.3,
+              scrollTrigger: {
+                trigger: section,
+                start: "top 70%",
+                end: "bottom 30%",
+                toggleActions: "play none none reverse"
+              }
+            }
+          );
+
           gsap.fromTo(section.querySelector('.section-image'), 
-            { opacity: 0, scale: 1.2 },
+            { opacity: 0, scale: 0.8, rotation: 3 },
             {
               opacity: 1,
               scale: 1,
-              duration: 2,
+              rotation: 0,
+              duration: 1.3,
+              ease: "back.out(1.7)",
+              delay: 0.7,
+              scrollTrigger: {
+                trigger: section,
+                start: "top 70%",
+                end: "bottom 30%",
+                toggleActions: "play none none reverse"
+              }
+            }
+          );
+        } else if (sectionData.layout === 'overlay') {
+          gsap.fromTo(section.querySelector('.section-image'), 
+            { opacity: 0, scale: 1.1 },
+            {
+              opacity: 1,
+              scale: 1,
+              duration: 1.8,
               ease: "power2.out",
+              delay: 0.2,
               scrollTrigger: {
                 trigger: section,
                 start: "top 80%",
@@ -222,13 +225,13 @@ const Index = () => {
           );
 
           gsap.fromTo(section.querySelector('.section-text'), 
-            { opacity: 0, y: 30 },
+            { opacity: 0, y: 20 },
             {
               opacity: 1,
               y: 0,
-              duration: 1.5,
+              duration: 1.2,
               ease: "power2.out",
-              delay: 0.5,
+              delay: 0.8,
               scrollTrigger: {
                 trigger: section,
                 start: "top 80%",
@@ -239,9 +242,9 @@ const Index = () => {
           );
         }
 
-        // Parallax effect on images
+        // Parallax effect on images - lighter effect to avoid conflicts
         gsap.to(section.querySelector('.parallax-image'), {
-          yPercent: -30,
+          yPercent: -15,
           ease: "none",
           scrollTrigger: {
             trigger: section,
@@ -502,17 +505,20 @@ const Index = () => {
           ref={el => {
             sectionsRef.current[index] = el;
           }}
-          className={`min-h-screen flex items-center justify-center relative overflow-hidden ${section.background}`}
+          className={`min-h-screen relative overflow-hidden ${section.background}`}
         >
-          {/* Section Title - Always centered at top */}
-          <div className="section-title absolute top-16 left-1/2 transform -translate-x-1/2 z-20">
+          {/* Section Title - Outside and above content */}
+          <div className="section-title absolute top-8 left-1/2 transform -translate-x-1/2 z-20">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 text-center font-dancing">
               {section.title}
             </h2>
           </div>
 
-          <div className="container mx-auto px-6 py-32">
-            {renderLayout(section, index)}
+          {/* Content container with proper spacing from title */}
+          <div className="flex items-center justify-center min-h-screen pt-24 pb-16">
+            <div className="container mx-auto px-6">
+              {renderLayout(section, index)}
+            </div>
           </div>
 
           {/* Floating hearts around sections */}
