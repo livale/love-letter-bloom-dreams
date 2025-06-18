@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from 'react';
 import { ArrowUp } from 'lucide-react';
 import { gsap } from 'gsap';
@@ -507,15 +508,15 @@ const Index = () => {
           }}
           className={`min-h-screen relative overflow-hidden ${section.background}`}
         >
-          {/* Section Title - Outside and above content */}
-          <div className="section-title absolute top-8 left-1/2 transform -translate-x-1/2 z-20">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 text-center font-dancing">
+          {/* Title Section - Separate div above content */}
+          <div className="section-title-container py-16 flex items-center justify-center">
+            <h2 className="section-title text-4xl md:text-5xl font-bold text-gray-800 text-center font-dancing">
               {section.title}
             </h2>
           </div>
 
-          {/* Content container with proper spacing from title */}
-          <div className="flex items-center justify-center min-h-screen pt-24 pb-16">
+          {/* Content Section - Separate div below title */}
+          <div className="content-container flex items-center justify-center min-h-[70vh] pb-16">
             <div className="container mx-auto px-6">
               {renderLayout(section, index)}
             </div>
