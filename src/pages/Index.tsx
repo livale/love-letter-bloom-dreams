@@ -1,8 +1,18 @@
+import { useEffect, useRef, useState } from "react";
+import { ArrowUp } from "lucide-react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import dandelionsAudio from "../assets/dandelions.mp3";
 
-import { useEffect, useRef, useState } from 'react';
-import { ArrowUp } from 'lucide-react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import image1 from "../assets/images/1-anniversary.jpg";
+import image2 from "../assets/images/2-battlefield.jpg";
+import image3 from "../assets/images/3-proud.jpg";
+import image4 from "../assets/images/4-promise.jpg";
+import image5 from "../assets/images/5-open.jpg";
+import image6 from "../assets/images/6-future.jpg";
+import image7 from "../assets/images/7-missing-you.jpg";
+import image8 from "../assets/images/8-together.jpg";
+import image9 from "../assets/images/9-dandelions-field.jpg";
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
@@ -21,74 +31,76 @@ const Index = () => {
       id: 1,
       title: "Happy 13th Month Anniversary! ❤️",
       text: "Happy Anniversary ke-13, Sayanggkuuu ❤️ Ga kerasa yaa sayang, kita udah ngelewatin satu tahun dan sekarang udah masuk ke bulan pertama di tahun kedua kita. Waktu cepet banget yaa jalannya, padahal rasanya baru kemarin aku nulis surat buat anniversary yang ke-12, sekarang udah ke-13 aja heheee.",
-      image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=600&h=400&fit=crop",
+      image: image1,
       background: "bg-gradient-to-br from-pink-100 via-purple-50 to-indigo-100",
-      layout: "center"
+      layout: "center",
     },
     {
       id: 2,
       title: "Our Battlefield Together 💪",
       text: "Sekarang kita lagi sama-sama di medan perang yaa sayangg, berjuang buat ningkatin ilmu, berjuang buat nyari kerja, semuanya demi masa depan kita berdua. Aku tau ini ga gampang, LDR sambil ngejar mimpi itu rasanya campur aduk. Ada hari di mana semangat banget, ada juga hari di mana rasanya cape dan pengen nyerah aja. Tapi tiap kali aku inget kamu, rasa cape itu langsung ilang gitu aja. Kamu itu beneran sumber semangat terbesarku, sayang.",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop",
+      image: image2,
       background: "bg-gradient-to-br from-rose-100 via-pink-50 to-purple-100",
-      layout: "left"
+      layout: "left",
     },
     {
       id: 3,
       title: "I'm So Proud of You 🌟",
       text: "Aku liat perjuangan kamu dari jauh sini, gimana gigihnya kamu belajar hal baru, belum lagi sambil ngerjain project om kamu, dan gimana kamu tetap semangat buat terus berjuang ngirim-ngirim lamaran kerja. Sumpah, aku bangga banget sama kamu sayangg. Kamu itu cewe yang kuat dan hebat. Jangan pernah ngerasa sendirian yaa pas lagi susah. Kalau kamu ngerasa down atau sedih gegara dapet penolakan, lampiasin semua ke aku yaa. Aku siap jadi tempat sampah buat semua keluh kesah kamu, kapan pun itu. Aku pengennya kamu selalu inget, ada aku di sini yang selalu dukung kamu 100%.",
-      image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&h=400&fit=crop",
+      image: image3,
       background: "bg-gradient-to-br from-purple-100 via-indigo-50 to-blue-100",
-      layout: "right"
+      layout: "right",
     },
     {
       id: 4,
       title: "My Promise to Be Better 🙏",
       text: "Di samping itu, aku juga sadar kalau aku masih banyak kurangnya. Aku tau kita kadang-kadang sering berantem gegara aku yang keras kepala pengen ini itu tanpa mikirin perasaan kamu. Maaf yaa sayang, kalau sifatku yang itu sering bikin kamu sedih atau cape. Aku janji, aku lagi belajar buat jadi lebih baik lagi, belajar buat lebih ngertiin kamu. Makasih yaa udah sabar banget ngadepin aku selama ini.",
-      image: "https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?w=600&h=400&fit=crop",
+      image: image4,
       background: "bg-gradient-to-br from-indigo-100 via-blue-50 to-cyan-100",
-      layout: "stack"
+      layout: "stack",
     },
     {
       id: 5,
       title: "Let's Always Be Open 💬",
       text: "Trus satu lagi yaa sayang, aku pengennya kalau kamu lagi sedih, moodnya tiba-tiba berubah, atau ada apapun yang ngeganjel di hati, langsung bilang ke aku yaa. Biar aku ga salah sangka dan ga mikir kamu tiba-tiba jutek sama aku, padahal kamunya lagi ada masalah. Aku justru lebih seneng kalau kamu terbuka, jadi aku bisa lebih ngertiin kamu. Jangan dipendem sendiri yaa, sayang.",
-      image: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=600&h=400&fit=crop",
+      image: image5,
       background: "bg-gradient-to-br from-cyan-100 via-teal-50 to-emerald-100",
-      layout: "left"
+      layout: "left",
     },
     {
       id: 6,
       title: "Our Future Dreams ✨",
-      text: "Kadang aku suka senyum-senyum sendiri ngebayangin nanti kalau kita udah sama-sama dapet kerjaan yang kita impiin. Mungkin LDR ini cuma \"Training Arc\" kita aja sayangg, buat ngebuktiin seberapa kuat kita. Aku yakin banget, setelah ini semua, bakalan ada \"Happy Ending Arc\" di mana kita bisa ketemu tiap hari tanpa harus dibatesin jarak lagi. Ga sabar banget nungguin momen itu, di mana kita bisa ngejar mimpi-mimpi kita yang lain bareng-bareng.",
-      image: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=600&h=400&fit=crop",
+      text: 'Kadang aku suka senyum-senyum sendiri ngebayangin nanti kalau kita udah sama-sama dapet kerjaan yang kita impiin. Mungkin LDR ini cuma "Training Arc" kita aja sayangg, buat ngebuktiin seberapa kuat kita. Aku yakin banget, setelah ini semua, bakalan ada "Happy Ending Arc" di mana kita bisa ketemu tiap hari tanpa harus dibatesin jarak lagi. Ga sabar banget nungguin momen itu, di mana kita bisa ngejar mimpi-mimpi kita yang lain bareng-bareng.',
+      image: image6,
       background: "bg-gradient-to-br from-emerald-100 via-green-50 to-lime-100",
-      layout: "overlay"
+      layout: "overlay",
     },
     {
       id: 7,
       title: "Missing You So Much 💕",
       text: "Aku kangen banget sama kamu, cantikku. Kangen jalan-jalan ga jelas sama kamu, kangen makan mie ayam bareng, kangen ketawa-ketawa sampe sakit perut, kangen semua hal-hal sederhana yang biasa kita lakuin bareng. Tapi gapapa, aku simpen dulu rasa kangen ini, buat jadi bahan bakar semangat aku di sini.",
-      image: "https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=600&h=400&fit=crop",
+      image: image7,
       background: "bg-gradient-to-br from-lime-100 via-yellow-50 to-orange-100",
-      layout: "right"
+      layout: "right",
     },
     {
       id: 8,
       title: "We Can Do This Together 💪💕",
       text: "Kita pasti bisa lewatin ini semua bareng-bareng, sayang. Jangan pernah ragu sama hubungan kita dan sama diri kamu sendiri yaa. Kamu itu hebat, dan kamu pantes dapetin semua yang terbaik. Semangat terus yaa cantiknya aku satu-satunyaa! I love you more and more every single day, sayanggkuuu.",
-      image: "https://images.unsplash.com/photo-1721322800607-8c38375eef04?w=600&h=400&fit=crop",
+      image: image8,
       background: "bg-gradient-to-br from-orange-100 via-red-50 to-pink-100",
-      layout: "center"
+      layout: "center",
     },
     {
       id: 9,
-      title: "Our Song 🌼",
-      text: "Btw, ini lagu yang sering aku dengerin, trus langsung keinget kamu.\n\n\"dandelions\" - Ruth B.\n\n'Cause I'm in a field of dandelions\nWishing on every one that you'd be mine, mine\nAnd I see forever in your eyes\nI feel okay when I see you smile, smile'\n\nAkuu sayang kamu selaluu, cintakuuu 💖",
-      image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?w=600&h=400&fit=crop",
+      title: "Song For You🌼",
+      text: "Btw, ini lagu yang ku dengerin sambil bikin web ini buat kamu.\n\n\"dandelions\" - Ruth B.\n\n'Cause I'm in a field of dandelions\nWishing on every one that you'd be mine, mine\nAnd I see forever in your eyes\nI feel okay when I see you smile, smile'\n\nAkuu sayang kamu selaluu, cintakuuu 💖",
+      image: image9,
+      // image:
+      // "https://images.unsplash.com/photo-1721322800607-8c38375eef04?w=600&h=400&fit=crop",
       background: "bg-gradient-to-br from-pink-100 via-rose-50 to-purple-100",
-      layout: "stack"
-    }
+      layout: "stack",
+    },
   ];
 
   // Initialize animations
@@ -97,9 +109,10 @@ const Index = () => {
     sectionsRef.current.forEach((section, index) => {
       if (section) {
         const sectionData = sections[index];
-        
+
         // Animate title - separate from content
-        gsap.fromTo(section.querySelector('.section-title'), 
+        gsap.fromTo(
+          section.querySelector(".section-title"),
           { opacity: 0, y: -30, scale: 0.9 },
           {
             opacity: 1,
@@ -111,16 +124,17 @@ const Index = () => {
               trigger: section,
               start: "top 90%",
               end: "bottom 10%",
-              toggleActions: "play none none reverse"
-            }
+              toggleActions: "play none none reverse",
+            },
           }
         );
 
         // Animate content based on layout with delays to avoid collisions
-        if (sectionData.layout === 'left' || sectionData.layout === 'right') {
-          const direction = sectionData.layout === 'left' ? -100 : 100;
-          
-          gsap.fromTo(section.querySelector('.section-text'), 
+        if (sectionData.layout === "left" || sectionData.layout === "right") {
+          const direction = sectionData.layout === "left" ? -100 : 100;
+
+          gsap.fromTo(
+            section.querySelector(".section-text"),
             { opacity: 0, x: direction },
             {
               opacity: 1,
@@ -132,12 +146,13 @@ const Index = () => {
                 trigger: section,
                 start: "top 75%",
                 end: "bottom 25%",
-                toggleActions: "play none none reverse"
-              }
+                toggleActions: "play none none reverse",
+              },
             }
           );
 
-          gsap.fromTo(section.querySelector('.section-image'), 
+          gsap.fromTo(
+            section.querySelector(".section-image"),
             { opacity: 0, x: -direction, scale: 0.9 },
             {
               opacity: 1,
@@ -150,12 +165,13 @@ const Index = () => {
                 trigger: section,
                 start: "top 75%",
                 end: "bottom 25%",
-                toggleActions: "play none none reverse"
-              }
+                toggleActions: "play none none reverse",
+              },
             }
           );
-        } else if (sectionData.layout === 'center') {
-          gsap.fromTo(section.querySelector('.section-content'), 
+        } else if (sectionData.layout === "center") {
+          gsap.fromTo(
+            section.querySelector(".section-content"),
             { opacity: 0, y: 50, scale: 0.95 },
             {
               opacity: 1,
@@ -168,12 +184,13 @@ const Index = () => {
                 trigger: section,
                 start: "top 75%",
                 end: "bottom 25%",
-                toggleActions: "play none none reverse"
-              }
+                toggleActions: "play none none reverse",
+              },
             }
           );
-        } else if (sectionData.layout === 'stack') {
-          gsap.fromTo(section.querySelector('.section-text'), 
+        } else if (sectionData.layout === "stack") {
+          gsap.fromTo(
+            section.querySelector(".section-text"),
             { opacity: 0, y: 30 },
             {
               opacity: 1,
@@ -185,12 +202,13 @@ const Index = () => {
                 trigger: section,
                 start: "top 70%",
                 end: "bottom 30%",
-                toggleActions: "play none none reverse"
-              }
+                toggleActions: "play none none reverse",
+              },
             }
           );
 
-          gsap.fromTo(section.querySelector('.section-image'), 
+          gsap.fromTo(
+            section.querySelector(".section-image"),
             { opacity: 0, scale: 0.8, rotation: 3 },
             {
               opacity: 1,
@@ -203,12 +221,13 @@ const Index = () => {
                 trigger: section,
                 start: "top 70%",
                 end: "bottom 30%",
-                toggleActions: "play none none reverse"
-              }
+                toggleActions: "play none none reverse",
+              },
             }
           );
-        } else if (sectionData.layout === 'overlay') {
-          gsap.fromTo(section.querySelector('.section-image'), 
+        } else if (sectionData.layout === "overlay") {
+          gsap.fromTo(
+            section.querySelector(".section-image"),
             { opacity: 0, scale: 1.1 },
             {
               opacity: 1,
@@ -220,12 +239,13 @@ const Index = () => {
                 trigger: section,
                 start: "top 80%",
                 end: "bottom 20%",
-                toggleActions: "play none none reverse"
-              }
+                toggleActions: "play none none reverse",
+              },
             }
           );
 
-          gsap.fromTo(section.querySelector('.section-text'), 
+          gsap.fromTo(
+            section.querySelector(".section-text"),
             { opacity: 0, y: 20 },
             {
               opacity: 1,
@@ -237,22 +257,22 @@ const Index = () => {
                 trigger: section,
                 start: "top 80%",
                 end: "bottom 20%",
-                toggleActions: "play none none reverse"
-              }
+                toggleActions: "play none none reverse",
+              },
             }
           );
         }
 
         // Parallax effect on images - lighter effect to avoid conflicts
-        gsap.to(section.querySelector('.parallax-image'), {
-          yPercent: -15,
+        gsap.to(section.querySelector(".parallax-image"), {
+          yPercent: 0,
           ease: "none",
           scrollTrigger: {
             trigger: section,
             start: "top bottom",
             end: "bottom top",
-            scrub: 1
-          }
+            scrub: 1,
+          },
         });
       }
     });
@@ -262,30 +282,30 @@ const Index = () => {
       setShowScrollTop(window.scrollY > window.innerHeight);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Falling hearts animation
   useEffect(() => {
     const createHeart = () => {
       if (!heartsContainerRef.current) return;
-      
-      const heart = document.createElement('div');
-      heart.innerHTML = '💖';
-      heart.className = 'absolute text-2xl pointer-events-none z-10';
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.animationDuration = Math.random() * 3 + 2 + 's';
-      heart.style.opacity = '0.7';
-      
+
+      const heart = document.createElement("div");
+      heart.innerHTML = "💖";
+      heart.className = "absolute text-2xl pointer-events-none z-10";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+      heart.style.opacity = "0.7";
+
       heartsContainerRef.current.appendChild(heart);
-      
+
       gsap.to(heart, {
-        y: '100vh',
+        y: "100vh",
         rotation: 360,
         duration: 5,
         ease: "none",
-        onComplete: () => heart.remove()
+        onComplete: () => heart.remove(),
       });
     };
 
@@ -297,23 +317,23 @@ const Index = () => {
   useEffect(() => {
     const createFlower = () => {
       if (!flowersContainerRef.current) return;
-      
-      const flowers = ['🌸', '🌺', '🌻', '🌷', '🌹'];
-      const flower = document.createElement('div');
+
+      const flowers = ["🌸", "🌺", "🌻", "🌷", "🌹"];
+      const flower = document.createElement("div");
       flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
-      flower.className = 'absolute text-xl pointer-events-none z-10';
-      flower.style.left = Math.random() * 100 + 'vw';
-      flower.style.opacity = '0.6';
-      
+      flower.className = "absolute text-xl pointer-events-none z-10";
+      flower.style.left = Math.random() * 100 + "vw";
+      flower.style.opacity = "0.6";
+
       flowersContainerRef.current.appendChild(flower);
-      
+
       gsap.to(flower, {
-        y: '100vh',
+        y: "100vh",
         rotation: Math.random() * 360,
         x: (Math.random() - 0.5) * 200,
         duration: Math.random() * 3 + 4,
         ease: "none",
-        onComplete: () => flower.remove()
+        onComplete: () => flower.remove(),
       });
     };
 
@@ -330,10 +350,10 @@ const Index = () => {
           await audio.play();
           setIsPlaying(true);
         } catch (error) {
-          console.log('Auto-play prevented by browser');
+          console.log("Auto-play prevented by browser");
         }
       };
-      
+
       // Try to play after a short delay
       setTimeout(playAudio, 1000);
     }
@@ -353,12 +373,12 @@ const Index = () => {
   };
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const renderLayout = (section: typeof sections[0], index: number) => {
+  const renderLayout = (section: (typeof sections)[0], index: number) => {
     switch (section.layout) {
-      case 'center':
+      case "center":
         return (
           <div className="section-content text-center max-w-4xl mx-auto space-y-12">
             <div className="section-image relative mx-auto w-80 h-80">
@@ -384,7 +404,7 @@ const Index = () => {
           </div>
         );
 
-      case 'left':
+      case "left":
         return (
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div className="section-image relative">
@@ -405,7 +425,7 @@ const Index = () => {
           </div>
         );
 
-      case 'right':
+      case "right":
         return (
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div className="section-text space-y-6 md:order-1">
@@ -426,7 +446,7 @@ const Index = () => {
           </div>
         );
 
-      case 'stack':
+      case "stack":
         return (
           <div className="section-content max-w-4xl mx-auto space-y-12">
             <div className="section-text space-y-6 text-center">
@@ -447,7 +467,7 @@ const Index = () => {
           </div>
         );
 
-      case 'overlay':
+      case "overlay":
         return (
           <div className="section-content relative max-w-5xl mx-auto">
             <div className="section-image relative h-96 md:h-[500px] overflow-hidden rounded-3xl shadow-2xl">
@@ -482,7 +502,7 @@ const Index = () => {
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
       >
-        <source src="https://www.soundjay.com/misc/sounds/magic-chime-02.mp3" type="audio/mpeg" />
+        <source src={dandelionsAudio} />
       </audio>
 
       {/* Music control button */}
@@ -490,20 +510,26 @@ const Index = () => {
         onClick={toggleMusic}
         className="fixed top-4 right-4 z-50 bg-white/80 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white/90 transition-all duration-300"
       >
-        {isPlaying ? '🔊' : '🔇'}
+        {isPlaying ? "🔊" : "🔇"}
       </button>
 
       {/* Hearts container */}
-      <div ref={heartsContainerRef} className="fixed inset-0 pointer-events-none z-10" />
-      
+      <div
+        ref={heartsContainerRef}
+        className="fixed inset-0 pointer-events-none z-10"
+      />
+
       {/* Flowers container */}
-      <div ref={flowersContainerRef} className="fixed inset-0 pointer-events-none z-10" />
+      <div
+        ref={flowersContainerRef}
+        className="fixed inset-0 pointer-events-none z-10"
+      />
 
       {/* Sections */}
       {sections.map((section, index) => (
         <section
           key={section.id}
-          ref={el => {
+          ref={(el) => {
             sectionsRef.current[index] = el;
           }}
           className={`min-h-screen relative overflow-hidden ${section.background}`}
@@ -531,7 +557,7 @@ const Index = () => {
                 top: `${20 + Math.random() * 60}%`,
                 left: `${10 + Math.random() * 80}%`,
                 animationDelay: `${i * 0.5}s`,
-                animationDuration: '3s'
+                animationDuration: "3s",
               }}
             >
               💕
